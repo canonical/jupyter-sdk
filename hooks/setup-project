@@ -1,0 +1,25 @@
+default_venv="$SDK/venv"
+
+if [ ! -f "$default_venv/pyvenv.cfg" ]; then
+    echo "No virtual environment detected, a default one will be created in $default_venv"
+    echo "Alternatively, add jupyter:venv plug connection to an SDK slot that provides a virtual environment."
+    echo "For example, add to your workshop.yaml:"
+    echo "  connections:"
+    echo "    - plug: jupyter:venv"
+    echo "      slot: uv:venv"
+    
+    sudo apt-get update
+    sudo apt-get install python3-venv python3-pip
+    python3 -m venv --system-site-packages "$default_venv"
+fi
+
+# shellcheck source=/dev/null
+source "$default_venv/bin/activate"
+JUPYTERLAB_VERSION=$(cat "$SDK/VERSION")
+pip install jupyterlab==$JUPYTERLAB_VERSION ipywidgets
+
+
+install -D --mode=644 --target-directory ~/.config/systemd/user "$SDK/jupyter-lab.service"
+
+systemctl --user daemon-reload
+systemctl --user enable jupyter-lab

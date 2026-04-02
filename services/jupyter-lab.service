@@ -1,0 +1,12 @@
+[Unit]
+Description=Jupyter Lab
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/bin/bash -lc "source /var/lib/workshop/sdk/jupyter/venv/bin/activate && jupyter-lab --no-browser --ip=127.0.0.1 --port=8888 --NotebookApp.token=''"
+WorkingDirectory=/project
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

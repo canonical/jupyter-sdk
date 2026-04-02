@@ -1,0 +1,36 @@
+name: jupyter
+summary: JupyterLab IDE
+adopt-info: venv
+description: |
+  This SDK provides JupyterLab as a persistent browser-accessible service
+  for interactive Python development. The Python virtual environment is
+  persisted on the host to preserve installed packages across workshop
+  updates. Optionally, connect the venv plug to the uv SDK for a
+  uv-managed environment.
+license: BSD-3-Clause
+platforms:
+  ubuntu@22.04:amd64:
+  ubuntu@24.04:amd64:
+
+plugs:
+  venv:
+    interface: mount
+    workshop-target: $SDK/venv
+slots:
+  jupyter:
+    interface: tunnel
+    endpoint: 127.0.0.1:8888
+
+parts:
+  services:
+    plugin: dump
+    source: services
+    source-type: local
+  venv:
+    plugin: nil
+    override-pull: |
+      VERSION=$(cat "$CRAFT_PROJECT_DIR/VERSION")
+      craftctl set version="$VERSION"
+    override-prime: |
+      mkdir -p venv
+      cp "$CRAFT_PROJECT_DIR/VERSION" VERSION
