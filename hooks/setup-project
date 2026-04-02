@@ -7,7 +7,7 @@ if [ ! -f "$default_venv/pyvenv.cfg" ]; then
     echo "  connections:"
     echo "    - plug: jupyter:venv"
     echo "      slot: uv:venv"
-    
+
     sudo apt-get update
     sudo apt-get install python3-venv python3-pip
     python3 -m venv --system-site-packages "$default_venv"

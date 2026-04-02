@@ -94,7 +94,7 @@ sdks:
         interface: tunnel
         endpoint: 127.0.0.1:8888
   - name: uv
-    channel: all/edge
+    channel: latest/stable
   - name: jupyter
     channel: latest/stable
 
