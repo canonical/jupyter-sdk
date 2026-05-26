@@ -130,7 +130,7 @@ connections:
 ## Documentation and guidance
 
 - [JupyterLab official documentation](https://jupyterlab.readthedocs.io/)
-- [Workshop documentation](https://canonical-workshop.readthedocs-hosted.com/latest/)
+- [Workshop documentation](https://ubuntu.com/workshop/docs/)
 
 ---
 
@@ -139,7 +139,7 @@ connections:
 - JupyterLab community: [JupyterLab GitHub](https://github.com/jupyterlab/jupyterlab)
 - Jupyter community forum: [Jupyter Discourse](https://discourse.jupyter.org/)
 - Workshop forum:
-  [Workshop Discourse](https://discourse.canonical.com/c/engineering/workshops/34)
+  [Discourse](https://discourse.ubuntu.com/)
 - Please review our
   [Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct) before
   participating.
