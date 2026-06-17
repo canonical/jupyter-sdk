@@ -8,6 +8,7 @@ description: |
   updates. Optionally, connect the venv plug to the uv SDK for a
   uv-managed environment.
 license: BSD-3-Clause
+website: https://github.com/canonical/jupyter-sdk
 platforms:
   ubuntu@22.04:amd64:
   ubuntu@24.04:amd64:
